@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'arcadeclassicregular';
+  src: url('./fonts/arcadeclassic-webfont.woff2') format('woff2'),
+       url('./fonts/arcadeclassic-webfont.woff') format('woff'),
+       url('./fonts/arcadeclassic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2, h3, a {
+  font-family: 'arcadeclassicregular';
+  font-size: 1.7em;
+  letter-spacing: 2px;
+}
+
+h2 a{
+  color: rgba(255, 0, 21, 0.767);
+}
+
+
+a {
+  text-decoration: none;
+  word-spacing: 10px;
+}
+
 html {
     box-sizing: border-box;
   }
@@ -7,27 +32,60 @@ html {
   }
   
   body {
+    margin: 0;
     background-color: black;
     display: flex;
     justify-content: center;
     align-content: center;
   }
 
+  h3 {
+    color: white;
+    font-size: 1.7em;
+    margin: 40px 0 0 0;
+  }
+
   .container {
     width: 50%;
-    border: 1px solid white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
   header {
       width: 100%;
       margin: 30px 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-content: center;
+      align-items: center;
   }
 
   .logo {
       width: 400px;
+  }
+
+  .cast {
+    width: 470px;
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .controls {
+    height: 200px;
+    width: 80%;
+  }
+
+  .controls img {
+    width: 200px;
+    margin: 0 30px;
   }
 
 

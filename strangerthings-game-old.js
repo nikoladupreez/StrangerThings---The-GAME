@@ -116,17 +116,14 @@ function createMap(world){
 };
 
 function switchMap(){
-    let particles = document.querySelector('#particles_upsidedown');
     createMap(worldStatus);
 
     if (map.classList.contains('normal')){
         map.classList.remove('normal');
         map.classList.add('upside-down');
-        particles.style.visibility = 'visible';
     } else {
         map.classList.remove('upside-down');
         map.classList.add('normal');
-        particles.style.visibility = 'hidden';
     };
 };
 
@@ -140,11 +137,6 @@ function eraseMap(){
     let container = document.getElementById('main');
     container.removeChild(map);
 };
-
-function repaintMap() {
-    eraseMap();
-    createMap(worldStatus);    
-}
 
 
 // ELEVEN ------------------------------------------------------------------------------
@@ -212,9 +204,6 @@ function moveRight(){
 let demogorgon;
 
 function placeDemogorgon(){
-    if (demogorgon) {
-        gameGrid[demogorgon.y][demogorgon.x] = waffle;
-    }
     let yRandom = Math.floor(Math.random() * gameGrid.length);
     let xRandom = Math.floor(Math.random() * gameGrid.length);
     if (gameGrid[yRandom][xRandom] === empty || gameGrid[yRandom][xRandom] === waffle){
@@ -223,7 +212,6 @@ function placeDemogorgon(){
             x: xRandom
         };
         gameGrid[demogorgon.y][demogorgon.x] = demogorgonIcon;
-        repaintMap();        
     } else {
         placeDemogorgon();
     };
@@ -260,83 +248,42 @@ function checkPortalCollision(){
 };
 
 // GAME SET UP -----------------------------------------------------------------------------
-function hideInstructionCard(){
-    let instructions = document.getElementById('start-game');
-    let button = document.getElementById('start-button');
-    button.addEventListener('click', function(){
-        instructions.style.visibility = 'hidden';
-    });
-};
-
-function showInstructionCard(){
-    let instructions = document.getElementById('start-game');
-    let button = document.getElementById('instructions-button');
-    button.addEventListener('click', function(){
-        instructions.style.visibility = 'visible';
-    });
-};
-
-function start(){
-    placeDemogorgon();
-    setInterval(placeDemogorgon, 4000);
-
-    hideInstructionCard();
-    showInstructionCard();
-
-    document.addEventListener('keydown', function(e){
-        if (map.classList.contains('normal')){
-            switch (e.key){
-                case 'ArrowUp':
-                    moveUp();
-                    break;
-                case 'ArrowDown':
-                    moveDown();
-                    break;
-                case 'ArrowLeft':
-                    moveLeft();
-                    break;
-                case 'ArrowRight':
-                    moveRight();
-                    break;
-            };
-
-        } else {
-            switch (e.key){
-                case 'ArrowUp':
-                    moveDown();
-                    break;
-                case 'ArrowDown':
-                    moveUp();
-                    break;
-                case 'ArrowLeft':
-                    moveRight();
-                    break;
-                case 'ArrowRight':
-                    moveLeft();
-                    break;
-            };
-        };
-
-        if (checkDemogorgonCollision()){
-            let gameover = document.getElementById('game-over');
-            gameover.style.visibility = 'visible';
-        } else if (checkPortalCollision()){
-            eraseMap();
-            eleven.x = 1;
-            eleven.y = 10;
-            gameGrid[eleven.y][eleven.x] = elevenIcon;
-            gameGrid[portal.y][portal.x] = portalIcon;
-            switchMap();
-        } else {
-            repaintMap();        
-        };
-    });
-};
-
 window.addEventListener('load', function(){
     createMap(worldStatus);  
     start();
 });
+
+function start(){
+    setInterval(new function(){ placeDemogorgon()}, 5000);
+    document.addEventListener('keydown', function(e){
+        switch (e.key){
+            case 'ArrowUp':
+                moveUp();
+                break;
+            case 'ArrowDown':
+                moveDown();
+                break;
+            case 'ArrowLeft':
+                moveLeft();
+                break;
+            case 'ArrowRight':
+                moveRight();
+                break;
+        };
+
+        if (checkDemogorgonCollision()){
+            alert('Sad, he got ya.');
+        } else if (checkPortalCollision()){
+            eraseMap();
+            eleven.x = 0;
+            eleven.y = 10;
+            switchMap();
+        } else {
+            eraseMap();
+            createMap(worldStatus);
+        };
+    });
+};
 
 
 

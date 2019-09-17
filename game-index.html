@@ -7,12 +7,66 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Stranger Things</title>
   <link rel="stylesheet" href="./game-style.css">
+  <link rel='stylesheet' href='./strangerthings-logo.css'>
 </head>
 
 <body>
-    <header>
-        <img class='logo' src='./images/strangerthings-logo2.png' alt='stranger-things-logo'>
-    </header>
+  <header>
+      <img src='./images/strangerthings-logo-outline.png' id='logo'>
+  </header>
+
+  <section id='main'>
+    <div class='score-container'>
+        <h2>Score:</h2>
+        <div>
+          <img src='./images/waffle-set.png'>
+          <span id='score'>0</span>
+        </div>
+    </div>
+
+    <div id='start-game'>
+      <h5>Instructions</h5>
+      <button type='button' id='start-button'>Start game</button>
+    </div>
+
+    <div id='particles_upsidedown'>
+    </div>
+
+    <div id='game-over' class='game-over'>
+      <h1>Game over</h1>
+      <h4>Do you want to start over?</h4>
+      <div>
+        <a href='./game-index.html'>Yes</a>
+        <a href='./start-menu.html'>No</a>
+      </div>
+    </div>
+
+    <div id='legenda'>
+      <div class='heads'>
+          <img src='./images/mike-head.png' alt='mike' id='mike'>
+          <img src='./images/will-head.png' alt='will' id='will'>
+          <img src='./images/dustin-head.png' alt='dustin' id='dustin'>
+          <img src='./images/lucas-head.png' alt='lucas' id='lucas'>
+      </div>
+      <div class='others'>
+          <h4>Mike</h4>
+          <h4>Will</h4>
+          <h4>Dustin</h4>
+          <h4>Lucas</h4>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <h3><a href='./start-menu.html'>Menu</a></h3>
+      <h3><a href='#' id='instructions-button'>Instructions</a></h3>
+    </div>
+    <p id='copyright'>©2019 Nikola du Preez</p>
+  </footer>
+
+  <script src='./particles.js'></script>
+  <script src='./particles-app.js'></script>
   <script src="./strangerthings-game.js"></script>
 </body>
 

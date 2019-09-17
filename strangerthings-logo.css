@@ -1,0 +1,39 @@
+header h1 {
+    color: rgba(0,0,0,.85);
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1;
+    position: relative;
+    text-shadow:
+          -1px -1px 0 red,  
+           1px -1px 0 red,
+           -1px 1px 0 red,
+            1px 1px 0 red,
+          -0px 0px 50px rgba(255, 0, 0,.5);
+    width: 100%;
+    background: black;
+    animation: Gradient 10s ease-in-out infinite;
+ }
+ 
+ @keyframes Gradient {
+     0% {
+         background-position: 25% 75%;
+       opacity: .25;
+     }
+     50% {
+         background-position: 50% 50%;
+       background-size: 100% 100%; 
+       opacity: 1;
+     }
+     100% {
+         background-position: 25% 75%;
+       opacity: .25;
+     }
+ }
+
+ .logo {
+     text-align: center;
+ }
+ 
