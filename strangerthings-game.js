@@ -213,19 +213,144 @@ let demogorgon;
 
 function placeDemogorgon(){
     if (demogorgon) {
-        gameGrid[demogorgon.y][demogorgon.x] = waffle;
+        gameGrid[demogorgon.y][demogorgon.x] = empty;
+        let path = search(createGraphGrid(), [demogorgon.x, demogorgon.y], [eleven.x, eleven.y]);
+        if (path && path.length > 0) {
+            demogorgon = {
+                y: path[0].y,
+                x: path[0].x
+            }
+        };
+    } else {
+        demogorgon = {
+                y: 20,
+                x: 10
+            };        
     }
+    gameGrid[demogorgon.y][demogorgon.x] = demogorgonIcon;
+
+    repaintMap();        
+
+    if (checkDemogorgonCollision()){
+        let gameover = document.getElementById('game-over');
+        gameover.style.visibility = 'visible';
+    }    
+};
+
+function createGraphGrid() {
+    let graphGrid = [];   
+    for (x = 0; x < gameGrid.length; x++){
+        let graphCol = [];
+        for (y = 0; y < gameGrid.length; y++){
+            graphCol.push(gameGrid[y][x] === wall ? 0 : 1);
+        }
+        graphGrid.push(graphCol);
+    }       
+    return graphGrid;  
+}
+
+function search(graphGrid, start, end) {
+    let graph = new Graph(graphGrid);
+    let path = astar.search(graph, graph.grid[start[0]][start[1]], graph.grid[end[0]][end[1]]);
+    return path;
+}
+
+// OTHERS ------------------------------------------------------------------------------
+let others = ['mike', 'will', 'dustin', 'lucas'];
+let namePlaced;
+let nameId = '';
+
+function positionOthers(reference, iconOther){
     let yRandom = Math.floor(Math.random() * gameGrid.length);
     let xRandom = Math.floor(Math.random() * gameGrid.length);
-    if (gameGrid[yRandom][xRandom] === empty || gameGrid[yRandom][xRandom] === waffle){
-        demogorgon = {
+
+    if (gameGrid[yRandom][xRandom] !== wall && gameGrid[yRandom][xRandom] !== eleven) {
+        namePlaced = {
             y: yRandom,
             x: xRandom
         };
-        gameGrid[demogorgon.y][demogorgon.x] = demogorgonIcon;
-        repaintMap();        
+
+        switch (reference){
+            case 5:
+                nameId = 'mike'
+                break;
+            case 6:
+                nameId = 'will'
+                break;
+            case 7:
+                nameId = 'dustin'                  
+                break;
+            case 8:
+                nameId = 'lucas'
+                break;
+        };
+
+        gameGrid[namePlaced.y][namePlaced.x] = iconOther;
+        repaintMap();
+    };
+};
+
+function chooseName(nameArr){
+    let randomIndex = Math.floor(Math.random() * nameArr.length);  //something wrong here// 
+    let name = nameArr[randomIndex];
+    let legenda = document.getElementById('legenda');
+
+    if (legenda.classList.contains(name)){
+        chooseName(others);
     } else {
-        placeDemogorgon();
+        return name;
+    };
+};
+
+function placeOthers(){
+    let name = chooseName(others);
+    let icon;
+    let referenceNumber;
+
+    switch (name){
+        case 'mike':
+            icon = mikeIcon;
+            referenceNumber = 5;
+            break;
+        case 'will':
+            icon = willIcon;
+            referenceNumber = 6;
+            break;
+        case 'dustin':
+            icon = dustinIcon;
+            referenceNumber = 7;
+            break;
+        case 'lucas':
+            icon = lucasIcon;
+            referenceNumber = 8;
+            break;
+    };
+
+    positionOthers(referenceNumber, icon);
+};
+
+function collectOthers(){
+    let legenda = document.getElementById('legenda');
+    legenda.classList.add(nameId);
+
+    switch (nameId){
+        case 'mike':
+            document.getElementById('mike-name').style.opacity = '1';
+            break;
+        case 'will':
+            document.getElementById('will-name').style.opacity = '1';
+            break;
+        case 'dustin':
+            document.getElementById('dustin-name').style.opacity = '1';
+            break;
+        case 'lucas':
+            document.getElementById('lucas-name').style.opacity = '1';
+            break;
+    };
+
+    if (legenda.classList.contains('mike') && legenda.classList.contains('will') && legenda.classList.contains('dustin') && legenda.classList.contains('lucas')){
+        let winGame = document.getElementById('');
+        winGame.style.visibility = 'visible';
     };
 };
 
@@ -259,6 +384,14 @@ function checkPortalCollision(){
     };
 };
 
+function checkOthersCollision(){
+    if (isCollide(eleven, namePlaced)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 // GAME SET UP -----------------------------------------------------------------------------
 function hideInstructionCard(){
     let instructions = document.getElementById('start-game');
@@ -277,12 +410,13 @@ function showInstructionCard(){
 };
 
 function start(){
-    placeDemogorgon();
-    setInterval(placeDemogorgon, 4000);
-
     hideInstructionCard();
     showInstructionCard();
 
+    placeDemogorgon();
+    placeOthers();
+    //setInterval(placeDemogorgon, 300);
+    
     document.addEventListener('keydown', function(e){
         if (map.classList.contains('normal')){
             switch (e.key){
@@ -317,17 +451,18 @@ function start(){
             };
         };
 
-        if (checkDemogorgonCollision()){
-            let gameover = document.getElementById('game-over');
-            gameover.style.visibility = 'visible';
-        } else if (checkPortalCollision()){
+       if (checkPortalCollision()){
             eraseMap();
             eleven.x = 1;
             eleven.y = 10;
             gameGrid[eleven.y][eleven.x] = elevenIcon;
             gameGrid[portal.y][portal.x] = portalIcon;
             switchMap();
+            placeOthers();
+       } else if (checkOthersCollision()){
+            collectOthers();
         } else {
+            placeDemogorgon();
             repaintMap();        
         };
     });

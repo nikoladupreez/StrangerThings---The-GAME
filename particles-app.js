@@ -51,7 +51,7 @@ particlesJS('particles_upsidedown',
         }
       },
       "size": {
-        "value": 1,
+        "value": 1.5,
         "random": true,
         "anim": {
           "enable": false,

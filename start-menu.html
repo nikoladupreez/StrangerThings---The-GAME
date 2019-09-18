@@ -15,14 +15,39 @@
         <img class='logo' src='./images/menu-logo.png' alt='stranger-things-logo'>
         <img class='cast' src='./images/cast-icon.png' alt='stranger-things-cast'>
     </header>
+
     <div class='menu'>
       <h3>Controls</h3>
+      <p> < Push arrow keys > </p>
+
       <div class='controls'>
-        <img src='./images/keys.png'>
+        <div id='upper-section'>
+          <h4 id='up'>Move up</h4>
+        </div>
+
+        <div id='middle-section'>
+          <div class='sides'>
+            <h4 id='left'>Move left</h4>
+          </div>
+          <div id='middle'>
+              <img src='./images/23e58b69f80b0c3.png'>
+          </div>
+          <div class='sides'>
+            <h4 id='right'>Move right</h4>
+          </div>
+        </div>
+
+        <div id='bottom-section'>
+            <h4 id='down'>Move down</h4>
+        </div>
       </div>
-      <h2><a href='./game-index.html'>Press enter to play</a></h2>
+
+      <h2><a href='./game-index.html' id='enter'>Press enter to insert coin</a></h2>
     </div>
+
   </section>
+
+  <script src='./Menu-keys.js'></script>
 </body>
 
 </html>

@@ -25,14 +25,40 @@
     </div>
 
     <div id='start-game'>
-      <h5>Instructions</h5>
+      <h3>Instructions</h3>
+      <div id='instruction-box'>
+        <div id='eat-waffles'>
+          <div>
+            <img src='./images/waffle-set.png'>
+          </div>
+          <p>Collect waffles</p>
+        </div>
+        <div id='save-boys'>
+          <div>
+            <img src='./images/save.png'>
+          </div>
+          <p>Save the boys</p>
+        </div>
+        <div id='do-not-die'>
+          <div>
+            <img src='./images/death.png'>
+          </div>
+          <p>Avoid the demogorgon</p>
+        </div>
+        <div id='notification'>
+          <div>
+            <img src='./images/note.png'>
+          </div>
+           <p>In the upside down, keys <br> are reversed</p>
+          </div>
+      </div>
       <button type='button' id='start-button'>Start game</button>
     </div>
 
     <div id='particles_upsidedown'>
     </div>
 
-    <div id='game-over' class='game-over'>
+    <div id='game-over'>
       <h1>Game over</h1>
       <h4>Do you want to start over?</h4>
       <div>
@@ -41,18 +67,27 @@
       </div>
     </div>
 
+    <div id='win-game'>
+        <h1>You win</h1>
+        <h4>Do you want to beat your score?</h4>
+        <div>
+          <a href='./game-index.html'>Yes</a>
+          <a href='./start-menu.html'>No</a>
+        </div>
+      </div>
+
     <div id='legenda'>
       <div class='heads'>
-          <img src='./images/mike-head.png' alt='mike' id='mike'>
-          <img src='./images/will-head.png' alt='will' id='will'>
-          <img src='./images/dustin-head.png' alt='dustin' id='dustin'>
-          <img src='./images/lucas-head.png' alt='lucas' id='lucas'>
+          <img src='./images/mike-head.png' alt='mike' id='mike-head'>
+          <img src='./images/will-head.png' alt='will' id='will-head'>
+          <img src='./images/dustin-head.png' alt='dustin' id='dustin-head'>
+          <img src='./images/lucas-head.png' alt='lucas' id='lucas-head'>
       </div>
       <div class='others'>
-          <h4>Mike</h4>
-          <h4>Will</h4>
-          <h4>Dustin</h4>
-          <h4>Lucas</h4>
+          <h4 id='mike-name'>Mike</h4>
+          <h4 id='will-name'>Will</h4>
+          <h4 id='dustin-name'>Dustin</h4>
+          <h4 id='lucas-name'>Lucas</h4>
       </div>
     </div>
   </section>
@@ -62,9 +97,9 @@
       <h3><a href='./start-menu.html'>Menu</a></h3>
       <h3><a href='#' id='instructions-button'>Instructions</a></h3>
     </div>
-    <p id='copyright'>©2019 Nikola du Preez</p>
   </footer>
 
+  <script src='./astar.js'></script>
   <script src='./particles.js'></script>
   <script src='./particles-app.js'></script>
   <script src="./strangerthings-game.js"></script>
