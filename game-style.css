@@ -117,6 +117,10 @@ p {
     flex-direction: column;
   }
 
+  #start-game h3 {
+    margin: 0 0 5px 0;
+  }
+
   @keyframes flick {
     0% { box-shadow: 0 0 7px red }
     50% { box-shadow: none; }
