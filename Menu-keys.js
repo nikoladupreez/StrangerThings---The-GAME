@@ -5,7 +5,12 @@ let keyLeft = document.getElementById('left');
 let keyRight = document.getElementById('right');
 let keyDown = document.getElementById('down');
 let menu = document.getElementById('start-page');
+//let soundtrack = document.getElementById('strangerthings-song');
+let coinSound = document.getElementById('insert-coin');
 
+//window.addEventListener('load', function(){
+ //   soundtrack.play();
+//})
 
     document.addEventListener('keydown', function(e){
             switch (e.key){
@@ -22,6 +27,7 @@ let menu = document.getElementById('start-page');
                     keyRight.style.visibility = 'visible';
                     break;
                 case 'Enter':
+                    coinSound.play();
                     menu.style.visibility = 'hidden';
             };
     });
@@ -42,24 +48,3 @@ let menu = document.getElementById('start-page');
                 break;
         };
     });
-
-// Sounds 
-
-// function sound(link) {
-//     this.sound = document.createElement("audio");
-//     this.sound.src = link;
-//     this.sound.setAttribute("preload", "auto");
-//     this.sound.setAttribute("controls", "none");
-//     this.sound.style.display = "none";
-//     document.body.appendChild(this.sound);
-//     this.play = function(){
-//       this.sound.play();
-//     };
-//     this.stop = function(){
-//       this.sound.pause();
-//     };
-//   };
-
-// let buttonSound = new sound('./sounds/476178__unadamlar__correct-choice.wav')
-// let coinSound = new sound('./sounds/271295__arnaud-coutancier__insert-coin.wav')
-// let strangerMusic = new sound('./sounds/Stranger Things Theme [8 Bit Cover Tribute to Stranger Things] - 8 Bit Universe.mp3')
