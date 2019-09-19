@@ -61,8 +61,8 @@
       <h1>Game over</h1>
       <h4>Do you want to start over?</h4>
       <div>
-        <a href='./game-index.html'>Yes</a>
-        <a href='./start-menu.html'>No</a>
+        <a href='./game-index.html' class='option-button'>Yes</a>
+        <a href='./index.html' class='option-button'>No</a>
       </div>
     </div>
 
@@ -70,8 +70,8 @@
         <h1>You win</h1>
         <h4>Do you want to beat your score?</h4>
         <div>
-          <a href='./game-index.html'>Yes</a>
-          <a href='./start-menu.html'>No</a>
+          <a href='./game-index.html' class='option-button'>Yes</a>
+          <a href='./start-menu.html' class='option-button'>No</a>
         </div>
       </div>
 
@@ -93,34 +93,43 @@
 
   <footer>
     <div>
-      <h3><a href='./index.html'>Menu</a></h3>
+      <h3><a href='#' id='menu-button'>Menu</a></h3>
       <h3><a href='#' id='instructions-button'>Instructions</a></h3>
     </div>
   </footer>
 
-  <audio id='strangerthings-song'>
-    <source src='./sounds/Stranger Things Theme [8 Bit Cover Tribute to Stranger Things] - 8 Bit Universe.mp3'>
+  <audio id='soundtrack'><embed autostart='true' loop='true' hidden='true' 
+    src='./sounds/soundtrack.mp3'></embed></audio>
   </audio>
   <audio id='click-button'>
-      <source src='./sounds/476178__unadamlar__correct-choice.wav'>
+      <source src='./sounds/click.ogg'>
     </audio>
   <audio id='waffle-sound'>
-    <source src='./sounds/126418__cabeeno-rossley__button-select.wav'>
+    <source src='./sounds/waffle.wav'>
+  </audio>
+  <audio id='portal-sound'>
+    <source src='./sounds/portal.flac'>
   </audio>
   <audio id='found-other'>
-    <source src='./sounds/274178__littlerobotsoundfactory__jingle-win-synth-02.wav'>
+    <source src='./sounds/collect.wav'>
   </audio>
   <audio id='lose'>
-    <source src='./sounds/400581__alanmcki__retro-arcade-video-game-descending-lose-life-tone.wav'>
+    <source src='./sounds/loser.mp3'>
   </audio>
   <audio id='win'>
-    <source src='./sounds/376318__jimhancock__tada.wav'>
+    <source src='./sounds/winner.wav'>
   </audio>
 
   <script src='./astar.js'></script>
   <script src='./particles.js'></script>
   <script src='./particles-app.js'></script>
-  <script src="./strangerthings-game.js"></script>
+  <script src="./Game.js"></script>
+  <script src="./Grid.js"></script>
+  <script src="./Map.js"></script>
+  <script src="./Eleven.js"></script>
+  <script src="./Demogorgon.js"></script>
+  <script src="./Others.js"></script>
+  <script src="./Collision.js"></script>
 </body>
 
 </html>
