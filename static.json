@@ -1,3 +1,7 @@
 {
-    "root": "./"
+    "root": "./",
+    "routes": {
+        "/index.html": "index.html",
+        "/game-index.html": "game-index.html"
+    }
 }
