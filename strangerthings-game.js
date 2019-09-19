@@ -113,7 +113,7 @@ function createMap(world){
         map.appendChild(blocks[i]);
     };
 
-    let container = document.getElementById('main');
+    let container = document.getElementById('main-container');
     let referenceNode = document.getElementById('legenda');
     container.insertBefore(map, referenceNode);
 };
@@ -140,7 +140,7 @@ function eraseMap(){
         worldStatus = 'upside-down';
     }
 
-    let container = document.getElementById('main');
+    let container = document.getElementById('main-container');
     container.removeChild(map);
 };
 

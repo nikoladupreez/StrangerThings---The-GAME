@@ -16,13 +16,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  background-color: black;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
 h1, h2, h3, h4, h5, a, span, p {
   font-family: 'arcadeclassicregular';
   letter-spacing: 2px;
@@ -52,6 +45,13 @@ p {
 }
 
   #main {
+    background-color: black
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  #main-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -66,7 +66,7 @@ p {
 
     /* Top section */
 
-  header {
+  #header-2 {
     margin: 15px 0 10px 0;
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@ p {
     height: 300px;
     margin: 0;
     background-color: black;
-    z-index: 3;
+    z-index: 2;
     visibility: visible;
     position: absolute;
     display: flex;
@@ -329,6 +329,11 @@ p {
 
   #mike-name, #will-name, #dustin-name, #lucas-name {
     opacity: 0.3;
+  }
+
+  #mike-name h4, #will-name h4, #dustin-name h4, #lucas-name h4{
+    opacity: 0.3;
+    font-size: 1.2em;
   }
 
     /* Bottom section */
