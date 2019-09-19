@@ -7,6 +7,22 @@
   font-style: normal;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 h2, h3, h4, p, a {
   font-family: 'arcadeclassicregular';
   letter-spacing: 2px;
@@ -46,22 +62,6 @@ a {
   word-spacing: 10px;
 }
 
-html {
-    box-sizing: border-box;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
-  body {
-    margin: 0;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-
   @keyframes blink {
       0% { text-shadow: 0 0 3px }
       50% { text-shadow: none; }
@@ -91,8 +91,8 @@ html {
 
   .cast {
     width: 470px;
-    -webkit-filter: drop-shadow(2px 2px 2px rgb(2, 2, 97));
-    filter: drop-shadow(2px 2px 2px  rgb(2, 2, 97));
+    -webkit-filter: drop-shadow(3px 3px 3px rgb(2, 2, 155));
+    filter: drop-shadow(3px 3px 3px  rgb(2, 2, 155));
   }
 
   .menu {
