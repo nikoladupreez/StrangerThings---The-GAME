@@ -435,10 +435,18 @@ function showInstructionCard(){
 
 function showStartMenu(){
     let menu = document.getElementById('start-page');
-    let button = document.getElementById('menu-button');
-    button.addEventListener('click', function(){
+    let menuButton = document.getElementById('menu-button');
+    let gameOver = document.getElementById('game-over');
+    let noButton = document.getElementById('no');
+    menuButton.addEventListener('click', function(){
         menu.style.visibility = 'visible';
         pauseGame();
+    });
+
+    noButton.addEventListener('click', function(){
+        gameOver.style.visibility = 'hidden'
+        menu.style.visibility = 'visible';
+        startGame();
     });
 };
 
