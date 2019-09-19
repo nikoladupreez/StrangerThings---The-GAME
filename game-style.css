@@ -329,11 +329,9 @@ p {
 
   #mike-name, #will-name, #dustin-name, #lucas-name {
     opacity: 0.3;
-  }
-
-  #mike-name h4, #will-name h4, #dustin-name h4, #lucas-name h4{
-    opacity: 0.3;
     font-size: 1.2em;
+    margin: 25px 0;
+    
   }
 
     /* Bottom section */

@@ -71,7 +71,7 @@ a {
     width: 100%;
     height: 100vh;
     z-index: 3;
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     display: flex;
     align-items: center;

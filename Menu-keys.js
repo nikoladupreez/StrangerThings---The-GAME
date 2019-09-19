@@ -4,7 +4,7 @@ let keyUp = document.getElementById('up');
 let keyLeft = document.getElementById('left');
 let keyRight = document.getElementById('right');
 let keyDown = document.getElementById('down');
-let enter = document.getElementById('enter');
+let menu = document.getElementById('start-page');
 
 document.addEventListener('keydown', function(e){
         switch (e.key){
@@ -21,7 +21,7 @@ document.addEventListener('keydown', function(e){
                 keyRight.style.visibility = 'visible';
                 break;
             case 'Enter':
-                enter.click();
+                menu.style.visibility = 'hidden';
         };
 });
 

@@ -433,6 +433,15 @@ function showInstructionCard(){
     });
 };
 
+function showStartMenu(){
+    let menu = document.getElementById('start-page');
+    let button = document.getElementById('menu-button');
+    button.addEventListener('click', function(){
+        menu.style.visibility = 'visible';
+        pauseGame();
+    });
+};
+
 function gameOver() {
     let gameover = document.getElementById('game-over');
     gameover.style.visibility = 'visible';
@@ -453,6 +462,7 @@ function start(){
     
     hideInstructionCard();
     showInstructionCard();
+    showStartMenu()
 
     placeOthers();
     moveDemogorgon();
