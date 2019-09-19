@@ -5,6 +5,14 @@ let keyLeft = document.getElementById('left');
 let keyRight = document.getElementById('right');
 let keyDown = document.getElementById('down');
 let enter = document.getElementById('enter');
+//let soundtrack = document.getElementById('strangerthings-song');
+let coinSound = document.getElementById('insert-coin');
+
+
+// window.addEventListener('load', function(){
+//    soundtrack.play();
+// });
+
 
 document.addEventListener('keydown', function(e){
         switch (e.key){
@@ -22,6 +30,7 @@ document.addEventListener('keydown', function(e){
                 break;
             case 'Enter':
                 enter.click();
+                coinSound();
         };
 });
 

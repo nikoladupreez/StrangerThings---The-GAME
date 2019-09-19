@@ -6,6 +6,15 @@
 let scoreElement = document.getElementById('score');
 let score = parseInt(document.getElementById('score').innerHTML);
 
+//Sounds:
+//let soundtrack = document.getElementById('strangerthings-song');
+let buttonSound = document.getElementById('click-button');
+let waffleSound = document.getElementById('waffle-sound');
+let foundOtherSound = document.getElementById('found-other');
+let gameOverSound = document.getElementById('lose');
+let winGameSound = document.getElementById('win');
+
+
 //GRID -----------------------------------------------------------------------------
 let gameGrid = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -164,6 +173,7 @@ function moveDown(){
     if (gameGrid[eleven.y + 1][eleven.x] !== wall){
         if (gameGrid[eleven.y + 1][eleven.x] === waffle){
             score++;
+            waffleSound.play();
             scoreElement.innerHTML = score;
         };
         gameGrid[eleven.y][eleven.x] = empty;
@@ -177,6 +187,7 @@ function moveUp(){
     if (gameGrid[eleven.y - 1][eleven.x] !== wall){
         if (gameGrid[eleven.y - 1][eleven.x] === waffle){
             score++;
+            waffleSound.play();
             scoreElement.innerHTML = score;
         };
         gameGrid[eleven.y][eleven.x] = empty;
@@ -191,6 +202,7 @@ function moveLeft(){
         if (gameGrid[eleven.y][eleven.x - 1] !== wall){
             if (gameGrid[eleven.y][eleven.x - 1] === waffle){
                 score++;
+                waffleSound.play();
                 scoreElement.innerHTML = score;
             };
             gameGrid[eleven.y][eleven.x] = empty;
@@ -205,6 +217,7 @@ function moveRight(){
     if (gameGrid[eleven.y][eleven.x + 1] !== wall){
         if (gameGrid[eleven.y][eleven.x + 1] === waffle){
             score++;
+            waffleSound.play();
             scoreElement.innerHTML = score;
         };
         gameGrid[eleven.y][eleven.x] = empty;
@@ -367,9 +380,12 @@ function collectOthers(){
             break;
     };
 
+    foundOtherSound.play();
+
     if (legenda.classList.contains('mike') && legenda.classList.contains('will') && legenda.classList.contains('dustin') && legenda.classList.contains('lucas')){
         let winGame = document.getElementById('win-game');
         winGame.style.visibility = 'visible';
+        winGameSound.play();
     };
 };
 
@@ -419,6 +435,7 @@ function hideInstructionCard(){
     let instructions = document.getElementById('start-game');
     let button = document.getElementById('start-button');
     button.addEventListener('click', function(){
+        buttonSound.play();
         instructions.style.visibility = 'hidden';
         resumeGame();
     });
@@ -428,6 +445,7 @@ function showInstructionCard(){
     let instructions = document.getElementById('start-game');
     let button = document.getElementById('instructions-button');
     button.addEventListener('click', function(){
+        buttonSound.play();
         instructions.style.visibility = 'visible';
         pauseGame();
     });
@@ -436,6 +454,7 @@ function showInstructionCard(){
 function gameOver() {
     let gameover = document.getElementById('game-over');
     gameover.style.visibility = 'visible';
+    gameOverSound.play();
 }
 
 
@@ -513,6 +532,7 @@ function start(){
 };
 
 window.addEventListener('load', function(){
+   // soundtrack.play();
     start();
 });
 
