@@ -25,6 +25,7 @@ class Game {
     }
 
     setUpGame() {
+        this.soundtrack.volume = 0.4;
         this.map.create(this.map.worldStatus);
         this.hideInstructionCard();
         this.showInstructionCard();
