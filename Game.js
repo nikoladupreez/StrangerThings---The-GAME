@@ -69,25 +69,29 @@ class Game {
     }
 
     yesSound() {
-        let button = document.getElementById('yes-button');
+        let buttons = document.getElementsByClassName('yes-button');
         let fixThis = this;
-        button.addEventListener('click', function () {
-            fixThis.buttonSound.play();
-            setTimeout(function(){
-                window.location = './game-index.html';
-            }, 500);
-        });
+        for (let i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener('click', function () {
+                fixThis.buttonSound.play();
+                setTimeout(function(){
+                    window.location = './game-index.html';
+                }, 500);
+            });
+        }
     }
 
     noSound() {
-        let button = document.getElementById('no-button');
+        let buttons = document.getElementsByClassName('no-button');
         let fixThis = this;
-        button.addEventListener('click', function () {
-            fixThis.buttonSound.play();
-            setTimeout(function(){
-                window.location = './index.html';
-            }, 500);
-        });
+        for (let i = 0; i < buttons.length; i++){
+            buttons[i].addEventListener('click', function () {
+                fixThis.buttonSound.play();
+                setTimeout(function(){
+                    window.location = './index.html';
+                }, 500);
+            });
+        }
     }
 
     start() {
