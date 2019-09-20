@@ -30,7 +30,8 @@ class Game {
         this.hideInstructionCard();
         this.showInstructionCard();
         this.goToMenu();
-        this.yesNoSound();
+        this.yesSound();
+        this.noSound();
         this.start();
     }
 
@@ -67,18 +68,26 @@ class Game {
         });
     }
 
-    yesNoSound() {
-        let buttons = document.getElementsByClassName('option-button');
+    yesSound() {
+        let button = document.getElementById('yes-button');
         let fixThis = this;
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener('click', function () {
-                fixThis.buttonSound.play();
-                
-                setTimeout(function(){
-                    window.location = './index.html';
-                }, 500);
-            });
-        }
+        button.addEventListener('click', function () {
+            fixThis.buttonSound.play();
+            setTimeout(function(){
+                window.location = './game-index.html';
+            }, 500);
+        });
+    }
+
+    noSound() {
+        let button = document.getElementById('no-button');
+        let fixThis = this;
+        button.addEventListener('click', function () {
+            fixThis.buttonSound.play();
+            setTimeout(function(){
+                window.location = './index.html';
+            }, 500);
+        });
     }
 
     start() {
@@ -90,7 +99,7 @@ class Game {
         }, this.demogorgon.moveInterval);
         window.addEventListener('keydown', function () {
             if (fixThis.checkPortalCollision()) {
-                this.portalSound.play();
+                fixThis.portalSound.play();
                 fixThis.map.erase();
                 fixThis.map.switch();
                 fixThis.updateLocation();

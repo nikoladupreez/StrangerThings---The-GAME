@@ -11,7 +11,7 @@ let coinSound = document.getElementById('insert-coin');
 
 
 //Events
-window.addEventListener('load', function(){
+window.addEventListener('mousemove', function(){
     //soundtrack.play();
 });
 
