@@ -6,11 +6,20 @@ let keyDown = document.getElementById('down');
 let enterButton = document.getElementById('enter');
 
 //Sounds 
-let soundtrack = document.getElementById('soundtrack');
+let ambienceChrome = document.getElementById('ambience-1');
+let ambienceRest = document.getElementById('ambience-2');
 let coinSound = document.getElementById('insert-coin');
 
 
 //Events
+let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+if(!isChrome){
+  $('#ambience-1').remove()
+}
+else{
+ $('#ambience-2').remove() //just to make sure that it will not have 2x audio in the background 
+};
+
 document.addEventListener('keydown', function(e){
         switch (e.key){
             case 'ArrowUp':
