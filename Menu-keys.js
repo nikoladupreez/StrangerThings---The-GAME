@@ -7,7 +7,7 @@ let enterButton = document.getElementById('enter');
 
 //Sounds 
 let ambienceChrome = document.getElementById('ambience-1');
-ambienceChrome.volume = 1.5;
+ambienceChrome.volume = 2;
 let coinSound = document.getElementById('insert-coin');
 
 
