@@ -145,6 +145,7 @@ class Game {
         let gameOver = document.getElementById('game-over');
         let gameOverSound = document.getElementById('lose');
         gameOver.style.visibility = 'visible';
+        this.soundtrack.pause();
         this.gameOverSound.play();
         this.pauseGame();
     }
@@ -152,6 +153,7 @@ class Game {
     gameWon() {
         let winGame = document.getElementById('win-game');
         winGame.style.visibility = 'visible';
+        this.soundtrack.pause();
         this.winGameSound.play();
         this.pauseGame();
     }
