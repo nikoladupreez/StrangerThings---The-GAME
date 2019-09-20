@@ -11,10 +11,6 @@ let coinSound = document.getElementById('insert-coin');
 
 
 //Events
-window.addEventListener('mousemove', function(){
-    //soundtrack.play();
-});
-
 document.addEventListener('keydown', function(e){
         switch (e.key){
             case 'ArrowUp':
