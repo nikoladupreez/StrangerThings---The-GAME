@@ -104,10 +104,12 @@ class Game {
         window.addEventListener('keydown', function () {
             if (fixThis.checkPortalCollision()) {
                 fixThis.portalSound.play();
-                fixThis.map.erase();
-                fixThis.map.switch();
-                fixThis.updateLocation();
-                fixThis.others.placeOthers();
+                setTimeout(function(){
+                    fixThis.map.erase();
+                    fixThis.map.switch();
+                    fixThis.updateLocation();
+                    fixThis.others.placeOthers();
+                }, 1000);
             } else if (fixThis.others.checkOthersCollision()) {
                 fixThis.others.collectOthers();
             } else if (fixThis.demogorgon.checkDemogorgonCollision()) {
